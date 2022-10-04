@@ -8,7 +8,7 @@ def findChange(lst01):
         if lst01[mid] == 1 and lst01[mid - 1] == 0: # found the change
             return mid
         elif lst01[mid] == 0 and lst01[mid - 1] == 0: # change is higher in the list
-            low = mid
+            low = mid + 1
         else: # change is lower in the list
             high = mid - 1
 
