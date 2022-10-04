@@ -1,10 +1,10 @@
 def e_approx(n):
-    e = 0
+    e = 1
     factorial = 1
     for i in range(n):
+        factorial *= i + 1 # i starts at 0
         e += 1 / factorial
-        factorial *= i + 1
-
+        
     return e
 
 def main():
