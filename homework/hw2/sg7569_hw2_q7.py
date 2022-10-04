@@ -5,15 +5,15 @@ def findChange(lst01):
 
     while low < high:
         mid = (low + high) // 2
-        if lst01[mid] == 0 and lst01[mid + 1] == 1: # found the change
-            return mid + 1
-        elif lst01[mid] == 0 and  lst01[mid + 1] == 0: # change is higher in the list
-            low = mid + 1
+        if lst01[mid] == 1 and lst01[mid - 1] == 0: # found the change
+            return mid
+        elif lst01[mid] == 0 and lst01[mid - 1] == 0: # change is higher in the list
+            low = mid
         else: # change is lower in the list
             high = mid - 1
 
 def main():
-    lst01 = [0, 0, 0, 0, 0, 1, 1, 1, 1, 1]
+    lst01 = [0, 0, 0, 0, 0,0,0, 1,1, 1, 1]
     print(findChange(lst01))
 
 if __name__ == "__main__":
