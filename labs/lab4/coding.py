@@ -42,7 +42,7 @@ def reverse_vowels(input_str):
 
     return "".join(list_str)
 
-# 3a: theta(n)
+# 3a: theta(n^2)
 # 3b
 def find_missing(lst):
     """
