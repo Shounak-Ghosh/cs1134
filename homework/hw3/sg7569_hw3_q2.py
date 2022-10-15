@@ -68,3 +68,37 @@ class ArrayList:
 
     def __rmul__(self, times):
         return self * times
+
+    def insert(self, ind, val):
+        # bound checking
+        if (not (-self.n <= ind <= self.n)):
+            raise IndexError('invalid index')
+        # wrap around neg ind values
+        if (ind < 0):
+            ind = self.n + ind
+        # resize if needed
+        if (self.n == self.capacity):
+            self.resize(2 * self.capacity)
+        # shift elements to the right
+        for i in range(self.n, ind, -1):
+            self.data[i] = self.data[i - 1]
+        self.data[ind] = val
+        self.n += 1 # increment n
+    
+    def pop(self, ind=-1):
+        # bound checking
+        if (not (-self.n <= ind <= self.n - 1)):
+            raise IndexError('invalid index')
+        # wrap around neg ind values
+        if (ind < 0):
+            ind = self.n + ind
+        # value to be popped
+        res = self.data[ind]
+        # shift elements to the left
+        for i in range(ind, self.n - 1):
+            self.data[i] = self.data[i + 1]
+        self.n -= 1 # decrement n
+        # resize if needed
+        if (self.n < self.capacity // 4):
+            self.resize(self.capacity // 2)
+        return res
