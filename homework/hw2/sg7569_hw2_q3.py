@@ -1,15 +1,10 @@
 def factors(num):
-    higher_divisors = [0] * int(num ** .5)
-    index = 0
-    for i in range(1, int(num ** .5) + 1):
+    for i in range(1, int(num ** .5)):
         if num % i == 0:
             yield i
-            if i != num // i: # don't include the square root twice
-                higher_divisors[index] = num // i
-                index += 1
-
-    for i in range(index - 1, -1, -1): # yield the higher divisors in reverse order
-        yield higher_divisors[i]
+    for i in range(int(num ** .5), 0, -1):
+        if num % i == 0:
+            yield num // i
 
 def main():
     num = 100
