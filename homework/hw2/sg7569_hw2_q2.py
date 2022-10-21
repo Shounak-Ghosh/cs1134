@@ -4,13 +4,15 @@ def example3(n):
     sum = 0
     counter = 0
     while i < n * n:
-        i *=2
+        i *= 2
         sum += i
         counter += 1
     print(counter)
     return sum
 
 # O(n) = n
+
+
 def example4(n):
     counter = 0
     i = n

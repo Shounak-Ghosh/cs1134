@@ -42,7 +42,7 @@ class Vector:
 
     def __repr__(self):
         return str(self)
-    
+
     def __sub__(self, other):
         if len(self) != len(other):
             raise ValueError('dimensions must agree')
@@ -50,40 +50,41 @@ class Vector:
         for j in range(len(self)):
             result[j] = self[j] - other[j]
         return result
-    
+
     def __neg__(self):
         result = Vector(len(self))
         for j in range(len(self)):
             result[j] = -self[j]
         return result
-    
+
     def __mul__(self, other):
-        if isinstance(other, int): # scalar multiplication
+        if isinstance(other, int):  # scalar multiplication
             result = Vector(len(self))
             for j in range(len(self)):
                 result[j] = self[j] * other
             return result
-        else: # dot product
+        else:  # dot product
             if len(self) != len(other):
                 raise ValueError('dimensions must agree')
             result = 0
             for j in range(len(self)):
                 result += self[j] * other[j]
             return result
-    
+
     def __rmul__(self, other):
-        if isinstance(other, int): # scalar multiplication
+        if isinstance(other, int):  # scalar multiplication
             result = Vector(len(self))
             for j in range(len(self)):
                 result[j] = self[j] * other
             return result
-        else: # dot product
+        else:  # dot product
             if len(self) != len(other):
                 raise ValueError('dimensions must agree')
             result = 0
             for j in range(len(self)):
                 result += self[j] * other[j]
             return result
+
 
 def main():
     v1 = Vector(5)

@@ -6,10 +6,12 @@ def factors(num):
         if num % i == 0:
             yield num // i
 
+
 def main():
     num = 100
     for i in factors(num):
         print(i)
+
 
 if __name__ == "__main__":
     main()

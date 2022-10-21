@@ -14,9 +14,11 @@ def fibs(n):
             f1 = f2
             n -= 1
 
+
 def main():
     for curr in fibs(8):
         print(curr)
+
 
 if __name__ == '__main__':
     main()
