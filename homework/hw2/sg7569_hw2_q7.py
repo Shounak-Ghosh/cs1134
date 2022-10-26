@@ -1,4 +1,3 @@
-# TODO: Edge case with all 0s or all 1s
 def findChange(lst01):
     # define pointers at opposite ends of the list
     low = 0
