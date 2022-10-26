@@ -1,16 +1,36 @@
 def split_by_sign(lst, low, high):
     if low == high:
-        return [lst[low]]
+        return lst
     else:
-        if lst[low] < 0:
-            return [lst[low]] + split_by_sign(lst, low+1, high)
+        if lst[low] > 0:
+            lst[low], lst[high] = lst[high], lst[low]
+            return split_by_sign(lst, low, high - 1)
         else:
-            return split_by_sign(lst, low+1, high) + [lst[low]]
+            return split_by_sign(lst, low+1, high)
 
+def split_by_sign_iterative(lst, l, h):
+    low = l
+    high = h
+    while low < high:
+        if lst[low] > 0:
+            lst[low], lst[high] = lst[high], lst[low]
+            high -= 1
+        else:
+            low += 1
+    return lst
+ 
 def main():
-    lst = [-1, 2, -3, 4, -5, 6, -7, 8]
-    print(lst)
-    print(split_by_sign(lst, 0, len(lst)-1))
+    lst1 = [1, -1, 2, 4, 6, -6, -7]
+    lst2 = [1, 1, 3]
+    print(split_by_sign(lst1, 0, len(lst1) - 1))
+    print(split_by_sign(lst1, 2, len(lst1) - 1))
+    print(split_by_sign(lst2, 2, len(lst2) - 1))
+
+    print(split_by_sign_iterative(lst1, 0, len(lst1) - 1))
+    print(split_by_sign_iterative(lst1, 2, len(lst1) - 1))
+    print(split_by_sign_iterative(lst2, 2, len(lst2) - 1))
+
+
 
 if __name__ == '__main__':
     main()
