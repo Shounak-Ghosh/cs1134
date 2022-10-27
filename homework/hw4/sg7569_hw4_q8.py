@@ -1,5 +1,9 @@
 # given a nested list of integers, return an un-nested list of integers
 def flat_list(nested_lst, low, high):
+    if len(nested_lst) == 0:  # edge case, empty list
+        return nested_lst
+    if high > len(nested_lst) - 1 or low < 0:  # edge case, params are out of bounds
+        raise ValueError("parameters out of bounds")
     if low == high:  # base case, only one element
         if type(nested_lst[low]) == int:  # check if it's an int
             return [nested_lst[low]]  # return a list with the int

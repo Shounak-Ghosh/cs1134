@@ -1,6 +1,4 @@
-def print_triangle(n):
-    if n <= 0:
-        return
+def print_triangle(n):  # n is a positive integer
     if n == 1:
         print("*")
     else:
@@ -8,9 +6,7 @@ def print_triangle(n):
         print("*"*n)
 
 
-def print_opposite_triangles(n):
-    if n <= 0:
-        return
+def print_opposite_triangles(n):  # n is a positive integer
     if n == 1:
         print("*")
         print("*")
@@ -20,9 +16,7 @@ def print_opposite_triangles(n):
         print("*"*n)
 
 
-def print_ruler(n):
-    if n <= 0:
-        return
+def print_ruler(n):  # n is a positive integer
     if n == 1:
         print("-")
     else:

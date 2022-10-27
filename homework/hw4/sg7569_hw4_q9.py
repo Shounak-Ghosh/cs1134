@@ -1,4 +1,8 @@
 def permutations(lst, low, high):
+    if len(lst) == 0:  # edge case, empty list
+        return lst
+    if high > len(lst) - 1 or low < 0:  # edge case, params are out of bounds
+        raise ValueError("parameters out of bounds")
     if low == high: # base case, only one element, only one permutation
         return [[lst[low]]]
     perms = permutations(lst, low+1, high) # get all permutations of the rest of the list
