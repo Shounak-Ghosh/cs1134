@@ -1,8 +1,8 @@
-import ArrayQueue as aq
+from ArrayQueue import ArrayQueue
 
 class QueueStack:
     def __init__(self):
-        self._queue = aq.ArrayQueue()
+        self._queue = ArrayQueue()
         self._size = 0
 
     def __len__(self):

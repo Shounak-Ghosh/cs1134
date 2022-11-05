@@ -1,8 +1,8 @@
-import ArrayQueue as aq
+from ArrayQueue import ArrayQueue
 
 class MeanQueue:
     def __init__(self):
-        self.queue = aq.ArrayQueue()
+        self.queue = ArrayQueue()
         self.mean = 0
         self.count = 0
 

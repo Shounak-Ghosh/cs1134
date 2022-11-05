@@ -1,9 +1,9 @@
-import MeanQueue as mq
-import ArrayDeque as ad
-import QueueStack as qs
+from MeanQueue import MeanQueue 
+from ArrayDeque import ArrayDeque
+from QueueStack import QueueStack
 
 def test_mean_queue():
-    q = mq.MeanQueue()
+    q = MeanQueue()
     q.enqueue(1)
     q.enqueue(2)
     q.enqueue(3)
@@ -31,7 +31,7 @@ def test_mean_queue():
         print("IndexError caught")
 
 def test_array_deque():
-    d = ad.ArrayDeque()
+    d = ArrayDeque()
     d.enqueue_first(1)
     d.enqueue_first(2)
     d.enqueue_first(3)
@@ -60,7 +60,7 @@ def test_array_deque():
         print("IndexError caught")
 
 def test_queue_stack():
-    s = qs.QueueStack()
+    s = QueueStack()
     s.push(1)
     s.push(2)
     s.push(3)
