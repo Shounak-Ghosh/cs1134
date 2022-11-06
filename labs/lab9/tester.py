@@ -81,8 +81,8 @@ def test_queue_stack():
 
 
 def main():
-    # test_mean_queue()
-    # test_array_deque()
+    test_mean_queue()
+    test_array_deque()
     test_queue_stack()
 
 if __name__ == "__main__":
