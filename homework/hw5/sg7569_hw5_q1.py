@@ -8,16 +8,23 @@ def interpreter_postfix_calculator():
         exprlst = inp.split(" ")
         # remove empty strings
         exprlst = [x for x in exprlst if x != ""]
-        print(exprlst)
+
+        # replace variables with their values
+        for i in range(len(exprlst)):
+            if exprlst[i].isalpha():  # only alow variables to be alpbabetic strings
+                for var in variables:
+                    if exprlst[i] == var[0]:
+                        exprlst[i] = var[1]
+                        break
+
         # case 1 - assignment
-        if len(exprlst) >=2 and exprlst[1] == "=":
-            # TODO need code to check for variables
+        if len(exprlst) >= 2 and exprlst[1] == "=":
             variables.append(
                 (exprlst[0], evaluate_postfix_expression(exprlst[2:])))
-            print("variable", exprlst[0], "set to", exprlst[2])
+            # print("variable", exprlst[0], "set to", exprlst[2])
+            print(exprlst[0])
         # case 2 normal expression evaluation
         else:
-            # TODO need code to check for variables
             print(evaluate_postfix_expression(exprlst))
 
         inp = input("--> ")
@@ -31,12 +38,12 @@ def evaluate_postfix_expression(exprlst):
 
     s = ArrayStack()
     for i in exprlst:
-        if i.isdigit():
-            s.push(i)
-        else:  # i is an operator
+        if i in "-+*/":  # i is an operator
             val1 = s.pop()
             val2 = s.pop()
             s.push(str(eval(val2 + i + val1)))
+        else:  # i is an operand
+            s.push(i)
 
     return s.pop()
 
