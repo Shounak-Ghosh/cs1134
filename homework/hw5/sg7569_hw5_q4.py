@@ -1,25 +1,41 @@
-import ArrayStack
+from ArrayStack import ArrayStack
 
-#TODO check if this works
+# TODO do this question
+
+
 class StackQueue:
     def __init__(self):
-        self.front = ArrayStack.ArrayStack()
-        self.back = ArrayStack.ArrayStack()
+        self.front = ArrayStack()  # stack used when enqueueing
+        self.back = ArrayStack()  # stack used when dequeueing
 
-    def enqueue(self, item):
-        self.front.push(item)
-
-    def dequeue(self):
-        if self.back.is_empty():
-            while not self.front.is_empty():
-                self.back.push(self.front.pop())
-        return self.back.pop()
+    def __len__(self):
+        return len(self.front) + len(self.back)
 
     def is_empty(self):
-        return self.front.is_empty() and self.back.is_empty()
+        return len(self) == 0
 
-    def size(self):
-        return self.front.size() + self.back.size()
+    def enqueue(self, val):
+        if self.is_empty():  # adding our first element
+            self.front.push(val)
+        elif self.back.is_empty():  # we are "facing forward"
+            self.front.push(val)
+        else:  # we are "facing backward", need to flip in order to enqueue
+            while not self.back.is_empty():
+                self.front.push(self.back.pop())
+            self.front.push(val)
 
-    def __str__(self):
-        return str(self.front) + str(self.back)
+    def dequeue(self):
+        if self.front.is_empty():  # front stack empty, we are "facing backward"
+            return self.back.pop()
+        else:  # we are "facing forward", need to flip in order to dequeue
+            while not self.front.is_empty():
+                self.back.push(self.front.pop())
+            return self.back.pop()
+
+    def first(self):
+        if self.front.is_empty(): # front stack empty, we are "facing backward"
+            return self.back.top()
+        else: # we are "facing forward", need to flip in order to get first
+            while not self.front.is_empty():
+                self.back.push(self.front.pop())
+            return self.back.top()

@@ -1,6 +1,6 @@
 from ArrayStack import ArrayStack
 
-
+# TODO: check divide by 0 issue
 def interpreter_postfix_calculator():
     variables = []  # list of tuples (variable name, value)
     inp = input("--> ")

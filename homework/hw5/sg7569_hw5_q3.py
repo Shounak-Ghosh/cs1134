@@ -1,10 +1,8 @@
 from ArrayStack import ArrayStack
 from ArrayDeque import ArrayDeque
 
-# TODO do this question
+
 # general idea: stack adjacent to deque
-
-
 class MidStack:
     def __init__(self):
         self.stack = ArrayStack()
@@ -30,7 +28,7 @@ class MidStack:
         popped = self.deque.dequeue_last()
         if not self.stack.is_empty() and self.deque.is_empty():
             self.deque.enqueue_last(self.stack.pop())
-        
+
         return popped
 
     def top(self):
@@ -41,5 +39,3 @@ class MidStack:
 
     def mid_push(self, val):
         self.stack.push(val)
-
-        
