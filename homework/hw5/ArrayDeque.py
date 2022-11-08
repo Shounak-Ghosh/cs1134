@@ -91,6 +91,15 @@ class ArrayDeque:
         self.data = new_data
         self.front_ind = 0
         self.back_ind = self.front_ind + self.num_of_elems - 1
+    
+    def __str__(self):
+        if(self.is_empty()):
+            return "[]"
+        else:
+            string = "["
+            for i in range(self.num_of_elems):
+                string += str(self.data[(self.front_ind + i) % len(self.data)]) + ", "
+            return string[:-2] + "]"
 
 
 '''

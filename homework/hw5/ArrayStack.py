@@ -63,3 +63,6 @@ class ArrayStack:
         if (self.is_empty()):
             raise Exception("Stack is empty")
         return self.data.pop()
+    
+    def __str__(self):
+        return str(self.data)
