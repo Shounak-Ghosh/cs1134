@@ -1,7 +1,8 @@
 from ArrayStack import ArrayStack
 
-# TODO: check divide by 0 issue
+
 def interpreter_postfix_calculator():
+    # dictionary for variables, values would be more efficient
     variables = []  # list of tuples (variable name, value)
     inp = input("--> ")
     while inp != "done()":
@@ -23,7 +24,7 @@ def interpreter_postfix_calculator():
                 (exprlst[0], evaluate_postfix_expression(exprlst[2:])))
             # print("variable", exprlst[0], "set to", exprlst[2])
             print(exprlst[0])
-        # case 2 normal expression evaluation
+        # case 2 - normal expression evaluation
         else:
             print(evaluate_postfix_expression(exprlst))
 

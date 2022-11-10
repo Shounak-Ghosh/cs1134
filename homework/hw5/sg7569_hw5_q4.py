@@ -1,8 +1,7 @@
 from ArrayStack import ArrayStack
 
-# TODO do this question
 
-
+# name the class "Queue" for gradescope
 class StackQueue:
     def __init__(self):
         self.front = ArrayStack()  # stack used when enqueueing
@@ -33,9 +32,9 @@ class StackQueue:
             return self.back.pop()
 
     def first(self):
-        if self.front.is_empty(): # front stack empty, we are "facing backward"
+        if self.front.is_empty():  # front stack empty, we are "facing backward"
             return self.back.top()
-        else: # we are "facing forward", need to flip in order to get first
+        else:  # we are "facing forward", need to flip in order to get first
             while not self.front.is_empty():
                 self.back.push(self.front.pop())
             return self.back.top()
