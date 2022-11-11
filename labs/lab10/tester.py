@@ -1,7 +1,7 @@
 from DoublyLinkedList import DoublyLinkedList
 from MidStack import MidStack
 from LinkedStack import LinkedStack
-import reverse_dll
+import reverse_dll as rdll
 
 def test_reverse_dll():
     dll = DoublyLinkedList()
@@ -11,10 +11,10 @@ def test_reverse_dll():
     dll.add_last(4)
     # dll.add_last(5)
     print(dll)
-    reversedll.reverse_dll_by_data(dll)
+    rdll.reverse_dll_by_data(dll)
     print(dll)
 
-    reversedll.reverse_dll_by_node(dll)
+    rdll.reverse_dll_by_node(dll)
     print(dll)
 
 def test_linked_stack():
