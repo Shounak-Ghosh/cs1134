@@ -83,8 +83,6 @@ class DoublyLinkedList:
             else:
                 cursor = cursor.next
     
-    def __str__(self):
-        return "[" + " <--> ".join([str(elem) for elem in self]) + "]"
     
 
 
