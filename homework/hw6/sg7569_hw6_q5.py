@@ -1,31 +1,24 @@
 from DoublyLinkedList import DoublyLinkedList
+
 # similar to a leetcode question: https://leetcode.com/problems/merge-two-sorted-lists/
-
 def merge_linked_lists(lst1, lst2):
-    def merge_sublists(l1, l2):
-        if l1 == lst1.trailer:
-            return l2
-        elif l2 == lst2.trailer:
-            return l1
-        elif l1.data < l2.data:
-            l1.next = merge_sublists(l1.next, l2)
-            l1.next.prev = l1
-            l1.prev = lst1.header
-            return l1
+    def merge_sublists(n1, n2, dll):
+        if n1 == lst1.trailer and n2 == lst2.trailer:
+            return dll
+        elif n1 == lst1.trailer:
+            dll.add_last(n2.data)
+            return merge_sublists(n1, n2.next, dll)
+        elif n2 == lst2.trailer:
+            dll.add_last(n1.data)
+            return merge_sublists(n1.next, n2, dll)
+        elif n1.data < n2.data:
+            dll.add_last(n1.data)
+            return merge_sublists(n1.next, n2, dll)
         else:
-            l2.next = merge_sublists(l1, l2.next)
-            l2.next.prev = l2
-            l2.prev = lst1.header
-            return l2
+            dll.add_last(n2.data)
+            return merge_sublists(n1, n2.next, dll)
 
-    head = merge_sublists(lst1.header.next, lst2.header.next)
-    ans = DoublyLinkedList()
-    
-    while head and head.next:
-        ans.add_last(head.data)
-        head = head.next
-    
-    return ans
+    return merge_sublists(lst1.header.next, lst2.header.next, DoublyLinkedList())
 
 
 def iterative_merge_linked_lists(lst1, lst2):
@@ -75,7 +68,6 @@ def main():
     # while merged_list:
     #     print(merged_list.data)
     #     merged_list = merged_list.next
-    
 
 
 if __name__ == "__main__":
