@@ -1,16 +1,14 @@
 from DoublyLinkedList import DoublyLinkedList
 
 # name the class "Integer" for gradescope
-
-
-class DLLInteger:
+class Integer:
     def __init__(self, num_str):
         self.dll = DoublyLinkedList()
         for digit in num_str:
             self.dll.add_last(int(digit))
 
     def __add__(self, other):
-        ans = DLLInteger("")
+        ans = Integer("")
         carry = 0
         # set pointers to the last node in of each list
         a = self.dll.trailer.prev
@@ -44,9 +42,34 @@ class DLLInteger:
 
         return ans
 
-    # TODO: implement __mul__ method
     def __mul__(self, other):
-        pass
+        ans = Integer("0")
+        carry = 0
+        # set pointers to the last node in of each list
+        a = self.dll.trailer.prev
+        b = other.dll.trailer.prev
+        level_count = 0
+
+        while b != other.dll.header:
+            level = Integer("")
+            while a != self.dll.header:
+                product = a.data * b.data + carry
+                carry = product // 10
+                level.dll.add_first(product % 10)
+                a = a.prev
+            if carry != 0:
+                level.dll.add_first(carry)
+
+            carry = 0
+            a = self.dll.trailer.prev
+            b = b.prev
+            for i in range(level_count):
+                level.dll.add_last(0)
+            level_count += 1
+            ans = ans + level
+        return ans
 
     def __repr__(self):
-        return "".join(str(d) for d in self.dll)
+        # lstrip() removes any leading zeros
+        s = "".join(str(d) for d in self.dll).lstrip("0")
+        return s if s else "0"

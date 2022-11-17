@@ -1,6 +1,6 @@
 from DoublyLinkedList import DoublyLinkedList
 from sg7569_hw6_q1 import LinkedQueue
-from sg7569_hw6_q2 import DLLInteger
+from sg7569_hw6_q2 import Integer
 from sg7569_hw6_q3 import CompactString
 
 
@@ -27,18 +27,48 @@ def test_dll():
 
 
 def test_linked_queue():
-    pass
+    lq = LinkedQueue()
+    assert len(lq) == 0
+    assert lq.is_empty()
+
+    lq.enqueue(1)
+    assert len(lq) == 1
+    assert lq.first() == 1
+
+    lq.enqueue(2)
+    assert len(lq) == 2
+    assert lq.first() == 1
+
+    lq.enqueue(3)
+    assert len(lq) == 3
+    assert lq.first() == 1
+
+    lq.dequeue()
+    assert len(lq) == 2
+    assert lq.first() == 2
+
+    lq.dequeue()
+    assert len(lq) == 1
+    assert lq.first() == 3
+
+    lq.dequeue()
+    assert len(lq) == 0
+    assert lq.is_empty()
 
 
 def test_integer():
-    a = DLLInteger("999")
+    a = Integer("999")
     print("a", a, a.dll)
-    b = DLLInteger("127")
+    b = Integer("127")
     print("b", b, b.dll)
     c = a + b
     print("a+b", c, c.dll)
     # d = a * b
     # print("a*b", d, d.dll)
+    a = Integer("01789")
+    b = Integer("0")
+    c = a * b
+    print("a*b", c, c.dll)
 
 
 def test_compact_string():
@@ -48,7 +78,8 @@ def test_compact_string():
     print(s2, s2.dll)
     s3 = s1 + s2
     print(s3, s3.dll)
-    print(s2 + s1, (s2 + s1).dll)
+    s4 = s2 + s1
+    print(s4, s4.dll)
 
 
 def main():

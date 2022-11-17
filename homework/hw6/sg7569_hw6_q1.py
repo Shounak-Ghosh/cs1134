@@ -22,4 +22,4 @@ class LinkedQueue:
     def first(self):
         if self.is_empty():
             raise Exception("Queue is empty")
-        return self.dll.first()
+        return self.dll.header.next.data

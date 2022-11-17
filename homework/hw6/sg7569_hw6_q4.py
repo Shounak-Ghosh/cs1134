@@ -9,17 +9,19 @@ def copy_linked_list(dll):
         curr_node = curr_node.next
     return dll_copy
 
+
 # make a deep copy of the DLL
 def deep_copy_linked_list(dll):
     dll_copy = DoublyLinkedList()
     curr_node = dll.header.next
     while curr_node != dll.trailer:
         if type(curr_node.data) == DoublyLinkedList:
-            dll_copy.add_last(deep_copy_linked_list(curr_node.data))
+            dll_copy.add_last(deep_copy_linked_list(curr_node.data))  # recurse
         else:
             dll_copy.add_last(curr_node.data)
         curr_node = curr_node.next
     return dll_copy
+
 
 def main():
     lnk_lst1 = DoublyLinkedList()
@@ -61,5 +63,7 @@ def main():
     e2 = lnk_lst2.header.next
     e2_1 = e2.data.header.next
     print(e2_1.data)
+
+
 if __name__ == "__main__":
     main()
