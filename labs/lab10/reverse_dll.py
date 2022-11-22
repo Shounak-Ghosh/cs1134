@@ -18,14 +18,15 @@ def reverse_dll_by_node(dll):
     low = dll.header.next
     high = dll.trailer.prev
 
-    
     while low != high:
         lownext = low.next
         highprev = high.prev
 
+        # swap the pointers to the current low and high nodes first
         low.prev.next, high.prev.next = high.prev.next, low.prev.next
         low.next.prev, high.next.prev = high.next.prev, low.next.prev
 
+        # swap the pointers coming from low and high
         low.next, high.next = high.next, low.next
         low.prev, high.prev = high.prev, low.prev
 
@@ -33,13 +34,3 @@ def reverse_dll_by_node(dll):
         if low == high:
             break
         high = highprev
-
-
-
-
-
-        
-
-        
-
-

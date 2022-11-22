@@ -5,7 +5,10 @@ def stack_sum(s):
     if len(s) == 1:
         return s.top()
     else:
-        return s.pop() + stack_sum(s)
+        val = s.pop()
+        total = val + stack_sum(s)
+        s.push(val)
+        return total
 
 
 def eval_prefix(exp_str):
@@ -55,6 +58,7 @@ def main():
     s.push(-8)
 
     print(stack_sum(s))
+    print(s)
 
     print(eval_prefix("- + * 16 5 * 8 4 20"))
 
