@@ -115,28 +115,41 @@ class LinkedBinaryTree:
             yield node.data
 
     # question 2 on hw 7
-    # TODO implement this method
     def leaves_list(self):
-        pass
+        # generates all the leaves of the tree in order
+        def leaves_list_helper(node):
+            if not node:
+                pass
+            elif not node.left and not node.right:  # leaf node found
+                yield node.data
+            else:
+                # check left and right subtrees
+                yield from leaves_list_helper(node.left)
+                yield from leaves_list_helper(node.right)
 
-    # question 4 on hw 7 
+        # passing the generator in to the list constructor
+        return list(leaves_list_helper(self.root))
+
+    # question 4 on hw 7
     # TODO figure out why this works
+    # general intuition: O(1) memory - cannot use any other data structures, 
+    # but we can use the tree itself
     def iterative_inorder(self):
         curr_node = self.root
 
         while curr_node:
-            if not curr_node.left:
+            if not curr_node.left: # if no left child, yield current and move right
                 yield curr_node.data
                 curr_node = curr_node.right
-            else:
-                prev_node = curr_node.left
-                while prev_node.right and prev_node.right is not curr_node:
-                    prev_node = prev_node.right
-                if not prev_node.right:
-                    prev_node.right = curr_node
-                    curr_node = curr_node.left
+            else: # if left child exists, find the rightmost node in the left subtree
+                left_node = curr_node.left 
+                while left_node.right and left_node.right is not curr_node:
+                    left_node = left_node.right
+                if not left_node.right: 
+                    left_node.right = curr_node 
+                    curr_node = curr_node.left 
                 else:
-                    prev_node.right = None
+                    left_node.right = None  # reset the changes made to the tree
                     yield curr_node.data
                     curr_node = curr_node.right
 
