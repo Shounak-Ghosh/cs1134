@@ -13,8 +13,11 @@ def min_and_max(bin_tree):
             if not r:
                 r = (node.data, node.data)
         return (min(node.data, l[0], r[0]), max(node.data, l[1], r[1]))
-    
-    return minmax_helper(bin_tree.root)
+
+    if bin_tree is None or not bin_tree.root:
+        raise ValueError("Empty tree")
+    else:
+        return minmax_helper(bin_tree.root)
 
 
 def main():

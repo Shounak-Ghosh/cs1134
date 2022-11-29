@@ -15,8 +15,11 @@ def is_height_balanced(bin_tree):
             rheight, rbal = is_height_balanced_helper(node.right)
             return 1 + max(lheight,rheight), abs(lheight - rheight) <= 1 and lbal and rbal
 
-    height, bal = is_height_balanced_helper(bin_tree.root)
-    return bal
+    if bin_tree is None:
+        raise ValueError("Empty tree")
+    else:
+       return is_height_balanced_helper(bin_tree.root)[1]
+
 
 def main():
 
@@ -33,6 +36,7 @@ def main():
 
     LBT.print_tree()
 
+    print(LBT)
     print(is_height_balanced(LBT))
 
     LBT = LinkedBinaryTree()
@@ -49,6 +53,10 @@ def main():
     LBT.print_tree()
 
     print(is_height_balanced(LBT))
+
+    # empty edge cases 
+    print(is_height_balanced(LinkedBinaryTree()))
+    print(is_height_balanced(None))
 
 if __name__ == '__main__':
     main()

@@ -131,11 +131,10 @@ class LinkedBinaryTree:
         return list(leaves_list_helper(self.root))
 
     # question 4 on hw 7
-    # TODO figure out why this works
     # general intuition: O(1) memory - cannot use any other data structures, 
     # but we can use the tree itself
     def iterative_inorder(self):
-        curr_node = self.root
+        curr_node = self.root # initialize pointer to root
 
         while curr_node:
             if not curr_node.left: # if no left child, yield current and move right
@@ -143,12 +142,12 @@ class LinkedBinaryTree:
                 curr_node = curr_node.right
             else: # if left child exists, find the rightmost node in the left subtree
                 left_node = curr_node.left 
-                while left_node.right and left_node.right is not curr_node:
+                while left_node.right and left_node.right is not curr_node: # keep moving right
                     left_node = left_node.right
-                if not left_node.right: 
-                    left_node.right = curr_node 
+                if not left_node.right: # set the rightmost node's right child to current node
+                    left_node.right = curr_node # link created, left_node.right was previously None
                     curr_node = curr_node.left 
-                else:
+                else: # left_node.right is curr_node
                     left_node.right = None  # reset the changes made to the tree
                     yield curr_node.data
                     curr_node = curr_node.right
