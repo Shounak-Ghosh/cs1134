@@ -98,15 +98,15 @@ def lca_bst(bst, n1, n2):
 def main():
     # create the example tree
     bst = BST()
-    bst.insert(5, None)
-    bst.insert(2, None)
-    bst.insert(1, None)
-    bst.insert(3, None)
-    bst.insert(12, None)
-    bst.insert(9, None)
-    bst.insert(21, None)
-    bst.insert(19, None)
-    bst.insert(25, None)
+    bst[5] = None
+    bst[2] = None
+    bst[1] = None
+    bst[3] = None
+    bst[12] = None
+    bst[9] = None
+    bst[21] = None
+    bst[19] = None
+    bst[25] = None
 
     bst.print_tree()
 
@@ -115,16 +115,16 @@ def main():
     print(glt_n(bst, 4))
 
     bst2 = BST()
-    bst2.insert(5, None)
-    bst2.insert(2, None)
-    bst2.insert(9, None)
-    bst2.insert(21, None)
-    bst2.insert(1, None)
-    bst2.insert(25, None)
-    bst2.insert(3, None)
-    bst2.insert(12, None)
-    bst2.insert(19, None)
-
+    bst2[1] = None
+    bst2[3] = None
+    bst2[25] = None
+    bst2[5] = None
+    bst2[2] = None
+    bst2[12] = None
+    bst2[9] = None
+    bst2[21] = None
+    bst2[19] = None
+   
     bst2.print_tree()
 
     print(compare_bst(bst, bst2))
