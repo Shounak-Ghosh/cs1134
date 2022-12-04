@@ -3,7 +3,7 @@ from BinarySearchTreeMap import BinarySearchTreeMap as BST
 def create_chain_bst(n):
     bst = BST()
     for i in range(1,n+1):
-        bst.insert(i, None)
+        bst[i] = None
     return bst
 
 def create_complete_bst(n):
@@ -11,7 +11,7 @@ def create_complete_bst(n):
         if start > end:
             return
         mid = (start + end) // 2
-        bst.insert(mid, None)
+        bst[mid] = None
         add_items(bst, start, mid-1)
         add_items(bst, mid+1, end)
         

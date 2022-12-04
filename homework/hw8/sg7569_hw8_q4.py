@@ -19,15 +19,16 @@ def find_min_abs_difference(bst):
 def main():
     bst = BST()
     # insert in level-order in order to get the right bst
-    bst.insert(9,None)
-    bst.insert(7,None)
-    bst.insert(20,None)
-    bst.insert(4,None)
-    bst.insert(17,None)
-    bst.insert(25,None)
-    bst.insert(1,None)
-    bst.insert(6,None)
-
+    bst[9] = None
+    bst[7] = None
+    bst[20] = None
+    bst[4] = None
+    bst[17] = None
+    bst[25] = None
+    bst[1] = None
+    bst[6] = None
+    
+    
     bst.print_tree()
 
     print(find_min_abs_difference(bst))
