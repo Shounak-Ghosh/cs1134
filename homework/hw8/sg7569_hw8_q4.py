@@ -1,4 +1,4 @@
-from BinarySearchTreeMap import BinarySearchTreeMap as BST
+from BinarySearchTreeMap import BinarySearchTreeMap
 
 def find_min_abs_difference(bst):
     # for each node, return the current min difference and the current max node  in the subtree
@@ -17,7 +17,7 @@ def find_min_abs_difference(bst):
     return find_min_abs_difference_helper(bst.root)[0]
 
 def main():
-    bst = BST()
+    bst = BinarySearchTreeMap()
     # insert in level-order in order to get the right bst
     bst[9] = None
     bst[7] = None
