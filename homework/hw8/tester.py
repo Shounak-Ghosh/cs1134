@@ -1,4 +1,4 @@
-from BinarySearchTreeMap import BinarySearchTreeMap as BST
+from sg7569_BinarySearchTreeMap import BinarySearchTreeMap as BST
 import os
 
 def main():
