@@ -1,5 +1,8 @@
 from ArrayStack import ArrayStack
 
+# TODO: pop or top doesn't throw an exception for empty MidStack, and/or no error checking
+# TODO: pop improperly rebalances the 2 data structures. Should only rebalance if the stack ends up with 2 more elements than the deque, otherwise the balance gets messed up
+# TODO: Multiple calls to mid_push doesn't maintain the midstack property. Need to check sizes of stack and deque to decide which one to insert into
 
 class MaxStack:
     def __init__(self):

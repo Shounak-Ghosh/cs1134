@@ -1,6 +1,6 @@
 from ArrayStack import ArrayStack
 
-
+# TODO: variable reassignment doesn't work
 def interpreter_postfix_calculator():
     # dictionary for variables, values would be more efficient
     variables = []  # list of tuples (variable name, value)

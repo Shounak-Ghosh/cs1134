@@ -13,6 +13,7 @@ class StackQueue:
     def is_empty(self):
         return len(self) == 0
 
+    # TODO: Should only move for dequeue. Currently, a sequence of enqueue dequeue is quadratic time
     def enqueue(self, val):
         if self.is_empty():  # adding our first element
             self.front.push(val)

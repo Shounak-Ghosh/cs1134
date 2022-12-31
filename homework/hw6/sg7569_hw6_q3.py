@@ -12,6 +12,7 @@ class CompactString:
             else:
                 self.dll.add_last((char, 1))
 
+    # TODO edge case when adding empty string
     def __add__(self, other) -> "CompactString":
         # create a new CompactString object
         new_cs = CompactString("")
